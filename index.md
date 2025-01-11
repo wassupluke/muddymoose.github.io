@@ -2,10 +2,8 @@
 
 ## my name is muddymoose
 
-###What to Expect 
+### What to Expect
 
-- Tips and Tricks
-- Stories
-- Recipes
-
-
+- [Tips and Tricks](tips.md)
+- [Stories](stories.md)
+- [Recipes](recipes.md)
