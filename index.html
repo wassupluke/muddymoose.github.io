@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1168,8 +1169,9 @@
     });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+
     const hasItems = breadQty > 0 || lineItems.length > 0;
     if (!hasItems) {
       alert('Please add at least one item to your order!');
@@ -1179,9 +1181,65 @@
       alert('Please confirm the payment & ordering policy.');
       return;
     }
-    document.getElementById('orderForm').style.display = 'none';
-    document.getElementById('successScreen').classList.add('show');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Build readable order summary for email
+    let orderLines = [];
+    let total = 0;
+
+    if (breadQty > 0) {
+      const sub = breadQty * 10;
+      total += sub;
+      orderLines.push(`Sandwich Bread x${breadQty} — $${sub}`);
+    }
+    lineItems.forEach(item => {
+      total += item.price;
+      orderLines.push(`${item.label} — $${item.price}`);
+    });
+
+    const pickupEl = document.getElementById('pickup');
+    const pickupText = pickupEl.options[pickupEl.selectedIndex]?.text || 'Not selected';
+    const pickupTimeText = document.getElementById('pickupTime').options[document.getElementById('pickupTime').selectedIndex]?.text || 'Not selected';
+
+    const payload = {
+      _subject: `🏕️ New Basecamp Bakery Order — ${document.getElementById('fname').value} ${document.getElementById('lname').value}`,
+      Name:           `${document.getElementById('fname').value} ${document.getElementById('lname').value}`,
+      Email:          document.getElementById('email').value,
+      Phone:          document.getElementById('phone').value,
+      'Pickup Week':  pickupText,
+      'Pickup Time':  pickupTimeText,
+      'Order Items':  orderLines.join('\n'),
+      'Order Total':  `$${total}`,
+      Notes:          document.getElementById('notes').value || 'None',
+    };
+
+    const submitBtn = document.querySelector('.submit-btn');
+    submitBtn.textContent = '⏳ Sending...';
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xeerqnnq', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        document.getElementById('orderForm').style.display = 'none';
+        document.getElementById('successScreen').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const data = await res.json();
+        submitBtn.textContent = '🔥 Submit My Order';
+        submitBtn.disabled = false;
+        alert('Something went wrong submitting your order. Please try again or contact us directly.');
+        console.error('Formspree error:', data);
+      }
+    } catch (err) {
+      submitBtn.textContent = '🔥 Submit My Order';
+      submitBtn.disabled = false;
+      alert('Network error — please check your connection and try again.');
+      console.error(err);
+    }
   }
 </script>
 </body>
