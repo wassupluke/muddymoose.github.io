@@ -466,40 +466,12 @@ select {
   opacity: 0.12;
 }
 
-.summary-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
 .summary-title {
   font-family: "Playfair Display", serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--wheat);
   letter-spacing: 0.04em;
-}
-
-.clear-btn {
-  background: none;
-  border: 1px solid rgba(250, 243, 228, 0.25);
-  border-radius: 6px;
-  color: rgba(250, 243, 228, 0.5);
-  font-size: 0.72rem;
-  font-family: "Libre Baskerville", serif;
-  padding: 3px 10px;
-  cursor: pointer;
-  transition:
-    border-color 0.15s,
-    color 0.15s;
-  position: relative;
-  z-index: 1;
-}
-
-.clear-btn:hover {
-  border-color: var(--ember);
-  color: var(--ember);
 }
 
 .summary-line {

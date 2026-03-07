@@ -224,20 +224,6 @@ document.querySelectorAll("[data-add-easter]").forEach((btn) => {
   });
 });
 
-document.getElementById("clearOrderBtn").addEventListener("click", () => {
-  breadQty = 0;
-  easterItems = [];
-  Object.keys(sizedQty).forEach((k) => {
-    sizedQty[k] = 0;
-  });
-  document.getElementById("bread-display").textContent = "0";
-  Object.keys(sizedQty).forEach((k) => {
-    document.getElementById(k + "-display").textContent = "0";
-  });
-  updateSummary();
-  checkValidity();
-});
-
 function getNameError(val, label) {
   if (!val.trim()) return label + " is required";
   const clean = val.trim();
