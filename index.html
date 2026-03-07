@@ -26,424 +26,467 @@
 
       <main>
         <form id="orderForm" novalidate>
-          <div class="section-label"><span>Your Info</span></div>
+          <div class="form-layout">
+            <div class="form-top">
+              <div class="section-label"><span>Your Info</span></div>
 
-          <div class="field-group">
-            <div class="field">
-              <label for="fname">First Name <span class="req">*</span></label>
-              <input type="text" id="fname" placeholder="Jane" required />
-              <div class="field-error" id="fname-error"></div>
-            </div>
-            <div class="field">
-              <label for="lname">Last Name <span class="req">*</span></label>
-              <input type="text" id="lname" placeholder="Smith" required />
-              <div class="field-error" id="lname-error"></div>
-            </div>
-          </div>
-
-          <div class="field-group">
-            <div class="field">
-              <label for="email">Email <span class="req">*</span></label>
-              <input
-                type="email"
-                id="email"
-                placeholder="jane@email.com"
-                required
-              />
-              <div class="field-error" id="email-error"></div>
-            </div>
-            <div class="field">
-              <label for="phone">Phone Number <span class="req">*</span></label>
-              <input
-                type="tel"
-                id="phone"
-                placeholder="(555) 000-0000"
-                required
-              />
-              <div class="field-error" id="phone-error"></div>
-            </div>
-          </div>
-
-          <div class="field-group">
-            <div class="field">
-              <label for="pickup">Pickup Week <span class="req">*</span></label>
-              <select id="pickup" required>
-                <option value="">-- Select a pickup week --</option>
-              </select>
-              <div
-                style="
-                  font-size: 0.73rem;
-                  color: var(--forest);
-                  font-style: italic;
-                  margin-top: 4px;
-                "
-              >
-                Bake day is every Tuesday — pickups available Tue or Wed. 🐣
-                Easter boxes: pickup April 1st only.
+              <div class="field-group">
+                <div class="field">
+                  <label for="fname"
+                    >First Name <span class="req">*</span></label
+                  >
+                  <input type="text" id="fname" placeholder="Jane" required />
+                  <div class="field-error" id="fname-error"></div>
+                </div>
+                <div class="field">
+                  <label for="lname"
+                    >Last Name <span class="req">*</span></label
+                  >
+                  <input type="text" id="lname" placeholder="Smith" required />
+                  <div class="field-error" id="lname-error"></div>
+                </div>
               </div>
-              <div class="field-error" id="pickup-error"></div>
-            </div>
-            <div class="field">
-              <label for="pickupTime"
-                >Pickup Day &amp; Time <span class="req">*</span></label
-              >
-              <select id="pickupTime" required>
-                <option value="">-- Select pickup week first --</option>
-              </select>
-              <div class="field-error" id="pickupTime-error"></div>
-            </div>
-          </div>
 
-          <div class="section-label"><span>Your Order</span></div>
-
-          <div class="menu-grid">
-            <div class="menu-card">
-              <span class="card-icon">🍞</span>
-              <div class="card-title">Sandwich Bread</div>
-              <div class="card-desc">
-                Incredibly soft whole grain loaves using the tangzhong method.
-                Made with hard white wheat &amp; Kamut.
+              <div class="field-group">
+                <div class="field">
+                  <label for="email">Email <span class="req">*</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="jane@email.com"
+                    required
+                  />
+                  <div class="field-error" id="email-error"></div>
+                </div>
+                <div class="field">
+                  <label for="phone"
+                    >Phone Number <span class="req">*</span></label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    placeholder="(555) 000-0000"
+                    required
+                  />
+                  <div class="field-error" id="phone-error"></div>
+                </div>
               </div>
-              <div class="card-price">$10 per loaf</div>
-              <div class="qty-row">
-                <div class="qty-label">Loaves</div>
-                <div class="qty-controls">
+
+              <div class="field-group">
+                <div class="field">
+                  <label for="pickup"
+                    >Pickup Week <span class="req">*</span></label
+                  >
+                  <select id="pickup" required>
+                    <option value="">-- Select a pickup week --</option>
+                  </select>
+                  <div
+                    style="
+                      font-size: 0.73rem;
+                      color: var(--forest);
+                      font-style: italic;
+                      margin-top: 4px;
+                    "
+                  >
+                    Bake day is every Tuesday — pickups available Tue or Wed. 🐣
+                    Easter boxes: pickup April 1st only.
+                  </div>
+                  <div class="field-error" id="pickup-error"></div>
+                </div>
+                <div class="field">
+                  <label for="pickupTime"
+                    >Pickup Day &amp; Time <span class="req">*</span></label
+                  >
+                  <select id="pickupTime" required>
+                    <option value="">-- Select pickup week first --</option>
+                  </select>
+                  <div class="field-error" id="pickupTime-error"></div>
+                </div>
+              </div>
+
+              <div class="section-label"><span>Your Order</span></div>
+
+              <div class="menu-grid">
+                <div class="menu-card">
+                  <span class="card-icon">🍞</span>
+                  <div class="card-title">Sandwich Bread</div>
+                  <div class="card-desc">
+                    Incredibly soft whole grain loaves using the tangzhong
+                    method. Made with hard white wheat &amp; Kamut.
+                  </div>
+                  <div class="card-price">$10 per loaf</div>
+                  <div class="qty-row">
+                    <div class="qty-label">Loaves</div>
+                    <div class="qty-controls">
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-qty="bread"
+                        data-delta="-1"
+                      >
+                        −
+                      </button>
+                      <div class="qty-display" id="bread-display">0</div>
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-qty="bread"
+                        data-delta="1"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="menu-card">
+                  <span class="card-icon">🌀</span>
+                  <div class="card-title">Fresh Milled Cinnamon Rolls</div>
+                  <div class="card-desc">
+                    Big, soft &amp; fluffy rolls made with hard &amp; soft white
+                    wheat. Topped with homemade cream cheese frosting.
+                  </div>
+                  <div class="card-price">4 for $14 · Dozen for $38</div>
+                  <div class="qty-row">
+                    <div class="qty-label">4 rolls — $14</div>
+                    <div class="qty-controls">
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="cinroll_4"
+                        data-delta="-1"
+                      >
+                        −
+                      </button>
+                      <div class="qty-display" id="cinroll_4-display">0</div>
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="cinroll_4"
+                        data-delta="1"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="qty-row" style="margin-top: 8px">
+                    <div class="qty-label">1 dozen — $38</div>
+                    <div class="qty-controls">
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="cinroll_12"
+                        data-delta="-1"
+                      >
+                        −
+                      </button>
+                      <div class="qty-display" id="cinroll_12-display">0</div>
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="cinroll_12"
+                        data-delta="1"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="menu-card">
+                  <span class="card-icon">🍪</span>
+                  <div class="card-title">
+                    Brown Butter Chocolate Chip Cookies
+                  </div>
+                  <div class="card-desc">
+                    Whole grain soft white wheat with nutty browned butter and
+                    rich chocolate chips.
+                  </div>
+                  <div class="card-price">Half dozen $10 · Dozen $18</div>
+                  <div class="qty-row">
+                    <div class="qty-label">Half dozen — $10</div>
+                    <div class="qty-controls">
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="cookies_6"
+                        data-delta="-1"
+                      >
+                        −
+                      </button>
+                      <div class="qty-display" id="cookies_6-display">0</div>
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="cookies_6"
+                        data-delta="1"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="qty-row" style="margin-top: 8px">
+                    <div class="qty-label">1 dozen — $18</div>
+                    <div class="qty-controls">
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="cookies_12"
+                        data-delta="-1"
+                      >
+                        −
+                      </button>
+                      <div class="qty-display" id="cookies_12-display">0</div>
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="cookies_12"
+                        data-delta="1"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="menu-card">
+                  <span class="card-icon">🫓</span>
+                  <div class="card-title">Fresh Milled Dinner Rolls</div>
+                  <div class="card-desc">
+                    Soft, pillowy whole grain dinner rolls — perfect alongside
+                    any meal. Made with fresh milled flour.
+                  </div>
+                  <div class="card-price">Half dozen $10 · Dozen $18</div>
+                  <div class="qty-row">
+                    <div class="qty-label">Half dozen — $10</div>
+                    <div class="qty-controls">
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="dinner_6"
+                        data-delta="-1"
+                      >
+                        −
+                      </button>
+                      <div class="qty-display" id="dinner_6-display">0</div>
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="dinner_6"
+                        data-delta="1"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="qty-row" style="margin-top: 8px">
+                    <div class="qty-label">1 dozen — $18</div>
+                    <div class="qty-controls">
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="dinner_12"
+                        data-delta="-1"
+                      >
+                        −
+                      </button>
+                      <div class="qty-display" id="dinner_12-display">0</div>
+                      <button
+                        type="button"
+                        class="qty-btn"
+                        data-sized="dinner_12"
+                        data-delta="1"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="easter-banner">
+                <div class="easter-banner-inner">
+                  <span class="easter-icon">🐣</span>
+                  <div>
+                    <div class="easter-title">Limited Easter Treat Boxes</div>
+                    <div class="easter-subtitle">
+                      Whole Grain · Stone Milled · Baked to Order
+                    </div>
+                  </div>
+                  <div class="easter-deadline">
+                    <div class="easter-deadline-label">Orders due</div>
+                    <div class="easter-deadline-date">March 24th</div>
+                    <div class="easter-deadline-pickup">
+                      Pickup: April 1st only
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="easter-grid">
+                <div class="easter-card">
+                  <div class="easter-card-header">
+                    <div>
+                      <div class="easter-card-name">The Nestling</div>
+                      <div class="easter-card-serves">Serves 2–3</div>
+                    </div>
+                    <div class="easter-card-price">$28</div>
+                  </div>
+                  <ul class="easter-items">
+                    <li>🍪 Painted Sugar Cookies ×4</li>
+                    <li>🧁 Lemon Glazed Cupcakes ×3</li>
+                    <li>🫐 Pastel Shortbread Rounds ×4</li>
+                    <li>🪺 Rice Krispie Easter Nests ×2</li>
+                  </ul>
                   <button
                     type="button"
-                    class="qty-btn"
-                    data-qty="bread"
-                    data-delta="-1"
+                    class="easter-btn"
+                    data-add-easter
+                    data-name="The Nestling"
+                    data-price="28"
                   >
-                    −
+                    + Add to Order — $28
                   </button>
-                  <div class="qty-display" id="bread-display">0</div>
+                </div>
+
+                <div class="easter-card easter-card-featured">
+                  <div class="easter-featured-tag">Most Popular</div>
+                  <div class="easter-card-header">
+                    <div>
+                      <div class="easter-card-name">The Meadow</div>
+                      <div class="easter-card-serves">Serves 4–6</div>
+                    </div>
+                    <div class="easter-card-price">$48</div>
+                  </div>
+                  <ul class="easter-items">
+                    <li>🍪 Painted Sugar Cookies ×6</li>
+                    <li>🍰 Mini Carrot Cake Loaf ×2</li>
+                    <li>🧁 Lemon Glazed Cupcakes ×4</li>
+                    <li>🫐 Pastel Shortbread Rounds ×6</li>
+                    <li>🪺 Rice Krispie Nests ×3</li>
+                  </ul>
                   <button
                     type="button"
-                    class="qty-btn"
-                    data-qty="bread"
-                    data-delta="1"
+                    class="easter-btn"
+                    data-add-easter
+                    data-name="The Meadow"
+                    data-price="48"
                   >
-                    +
+                    + Add to Order — $48
+                  </button>
+                </div>
+
+                <div class="easter-card">
+                  <div class="easter-card-header">
+                    <div>
+                      <div class="easter-card-name">The Grand Basket</div>
+                      <div class="easter-card-serves">Serves 8–10</div>
+                    </div>
+                    <div class="easter-card-price">$72</div>
+                  </div>
+                  <ul class="easter-items">
+                    <li>🍪 Painted Sugar Cookies ×8</li>
+                    <li>🍰 Mini Carrot Cake Loaves ×4</li>
+                    <li>🧁 Lemon Glazed Cupcakes ×6</li>
+                    <li>🫐 Pastel Shortbread Rounds ×8</li>
+                    <li>🪺 Rice Krispie Easter Nests ×4</li>
+                  </ul>
+                  <button
+                    type="button"
+                    class="easter-btn"
+                    data-add-easter
+                    data-name="The Grand Basket"
+                    data-price="72"
+                  >
+                    + Add to Order — $72
                   </button>
                 </div>
               </div>
             </div>
+            <!-- /.form-top -->
 
-            <div class="menu-card">
-              <span class="card-icon">🌀</span>
-              <div class="card-title">Fresh Milled Cinnamon Rolls</div>
-              <div class="card-desc">
-                Big, soft &amp; fluffy rolls made with hard &amp; soft white
-                wheat. Topped with homemade cream cheese frosting.
-              </div>
-              <div class="card-price">4 for $14 · Dozen for $38</div>
-              <div class="qty-row">
-                <div class="qty-label">4 rolls — $14</div>
-                <div class="qty-controls">
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="cinroll_4"
-                    data-delta="-1"
-                  >
-                    −
-                  </button>
-                  <div class="qty-display" id="cinroll_4-display">0</div>
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="cinroll_4"
-                    data-delta="1"
-                  >
-                    +
+            <aside class="summary-sidebar">
+              <div class="section-label"><span>Order Summary</span></div>
+              <div class="summary-box">
+                <div class="summary-header">
+                  <div class="summary-title">📋 What's in your basket</div>
+                  <button type="button" class="clear-btn" id="clearOrderBtn">
+                    Clear Order
                   </button>
                 </div>
-              </div>
-              <div class="qty-row" style="margin-top: 8px">
-                <div class="qty-label">1 dozen — $38</div>
-                <div class="qty-controls">
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="cinroll_12"
-                    data-delta="-1"
-                  >
-                    −
-                  </button>
-                  <div class="qty-display" id="cinroll_12-display">0</div>
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="cinroll_12"
-                    data-delta="1"
-                  >
-                    +
-                  </button>
+                <div id="summary-lines">
+                  <div class="summary-empty">
+                    No items selected yet — add something above!
+                  </div>
                 </div>
+              </div>
+            </aside>
+
+            <div class="form-bottom">
+              <div class="section-label" style="margin-top: 32px">
+                <span>Notes</span>
+              </div>
+              <div class="field">
+                <label for="notes">Anything else we should know?</label>
+                <textarea
+                  id="notes"
+                  placeholder="Add any notes about your order here..."
+                ></textarea>
+              </div>
+
+              <div class="section-label"><span>Payment</span></div>
+              <div class="payment-note">
+                <strong>Payment info:</strong> After submitting, we'll reach out
+                within 24 hours to confirm your order and share your total.
+                Payment must be received in full before we begin baking.
+                <div class="payment-methods">
+                  <span class="pay-badge">💚 Venmo</span>
+                  <span class="pay-badge">💙 Zelle</span>
+                </div>
+              </div>
+
+              <div class="checkbox-row" id="checkboxRow">
+                <input type="checkbox" id="payAgree" required />
+                <span
+                  >I understand that payment must be received in full before
+                  baking begins, and that orders must be placed at least
+                  <strong>48 hours in advance</strong>.</span
+                >
+              </div>
+
+              <div class="submit-area">
+                <button
+                  type="submit"
+                  class="submit-btn"
+                  id="submitBtn"
+                  disabled
+                >
+                  🔥 Submit My Order
+                </button>
+                <p class="submit-sub">
+                  You'll hear from us within 24 hours to confirm
+                </p>
               </div>
             </div>
-
-            <div class="menu-card">
-              <span class="card-icon">🍪</span>
-              <div class="card-title">Brown Butter Chocolate Chip Cookies</div>
-              <div class="card-desc">
-                Whole grain soft white wheat with nutty browned butter and rich
-                chocolate chips.
-              </div>
-              <div class="card-price">Half dozen $10 · Dozen $18</div>
-              <div class="qty-row">
-                <div class="qty-label">Half dozen — $10</div>
-                <div class="qty-controls">
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="cookies_6"
-                    data-delta="-1"
-                  >
-                    −
-                  </button>
-                  <div class="qty-display" id="cookies_6-display">0</div>
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="cookies_6"
-                    data-delta="1"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-              <div class="qty-row" style="margin-top: 8px">
-                <div class="qty-label">1 dozen — $18</div>
-                <div class="qty-controls">
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="cookies_12"
-                    data-delta="-1"
-                  >
-                    −
-                  </button>
-                  <div class="qty-display" id="cookies_12-display">0</div>
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="cookies_12"
-                    data-delta="1"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="menu-card">
-              <span class="card-icon">🫓</span>
-              <div class="card-title">Fresh Milled Dinner Rolls</div>
-              <div class="card-desc">
-                Soft, pillowy whole grain dinner rolls — perfect alongside any
-                meal. Made with fresh milled flour.
-              </div>
-              <div class="card-price">Half dozen $10 · Dozen $18</div>
-              <div class="qty-row">
-                <div class="qty-label">Half dozen — $10</div>
-                <div class="qty-controls">
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="dinner_6"
-                    data-delta="-1"
-                  >
-                    −
-                  </button>
-                  <div class="qty-display" id="dinner_6-display">0</div>
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="dinner_6"
-                    data-delta="1"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-              <div class="qty-row" style="margin-top: 8px">
-                <div class="qty-label">1 dozen — $18</div>
-                <div class="qty-controls">
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="dinner_12"
-                    data-delta="-1"
-                  >
-                    −
-                  </button>
-                  <div class="qty-display" id="dinner_12-display">0</div>
-                  <button
-                    type="button"
-                    class="qty-btn"
-                    data-sized="dinner_12"
-                    data-delta="1"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
+            <!-- /.form-bottom -->
           </div>
-
-          <div class="easter-banner">
-            <div class="easter-banner-inner">
-              <span class="easter-icon">🐣</span>
-              <div>
-                <div class="easter-title">Limited Easter Treat Boxes</div>
-                <div class="easter-subtitle">
-                  Whole Grain · Stone Milled · Baked to Order
-                </div>
-              </div>
-              <div class="easter-deadline">
-                <div class="easter-deadline-label">Orders due</div>
-                <div class="easter-deadline-date">March 24th</div>
-                <div class="easter-deadline-pickup">Pickup: April 1st only</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="easter-grid">
-            <div class="easter-card">
-              <div class="easter-card-header">
-                <div>
-                  <div class="easter-card-name">The Nestling</div>
-                  <div class="easter-card-serves">Serves 2–3</div>
-                </div>
-                <div class="easter-card-price">$28</div>
-              </div>
-              <ul class="easter-items">
-                <li>🍪 Painted Sugar Cookies ×4</li>
-                <li>🧁 Lemon Glazed Cupcakes ×3</li>
-                <li>🫐 Pastel Shortbread Rounds ×4</li>
-                <li>🪺 Rice Krispie Easter Nests ×2</li>
-              </ul>
-              <button
-                type="button"
-                class="easter-btn"
-                data-add-easter
-                data-name="The Nestling"
-                data-price="28"
-              >
-                + Add to Order — $28
-              </button>
-            </div>
-
-            <div class="easter-card easter-card-featured">
-              <div class="easter-featured-tag">Most Popular</div>
-              <div class="easter-card-header">
-                <div>
-                  <div class="easter-card-name">The Meadow</div>
-                  <div class="easter-card-serves">Serves 4–6</div>
-                </div>
-                <div class="easter-card-price">$48</div>
-              </div>
-              <ul class="easter-items">
-                <li>🍪 Painted Sugar Cookies ×6</li>
-                <li>🍰 Mini Carrot Cake Loaf ×2</li>
-                <li>🧁 Lemon Glazed Cupcakes ×4</li>
-                <li>🫐 Pastel Shortbread Rounds ×6</li>
-                <li>🪺 Rice Krispie Nests ×3</li>
-              </ul>
-              <button
-                type="button"
-                class="easter-btn"
-                data-add-easter
-                data-name="The Meadow"
-                data-price="48"
-              >
-                + Add to Order — $48
-              </button>
-            </div>
-
-            <div class="easter-card">
-              <div class="easter-card-header">
-                <div>
-                  <div class="easter-card-name">The Grand Basket</div>
-                  <div class="easter-card-serves">Serves 8–10</div>
-                </div>
-                <div class="easter-card-price">$72</div>
-              </div>
-              <ul class="easter-items">
-                <li>🍪 Painted Sugar Cookies ×8</li>
-                <li>🍰 Mini Carrot Cake Loaves ×4</li>
-                <li>🧁 Lemon Glazed Cupcakes ×6</li>
-                <li>🫐 Pastel Shortbread Rounds ×8</li>
-                <li>🪺 Rice Krispie Easter Nests ×4</li>
-              </ul>
-              <button
-                type="button"
-                class="easter-btn"
-                data-add-easter
-                data-name="The Grand Basket"
-                data-price="72"
-              >
-                + Add to Order — $72
-              </button>
-            </div>
-          </div>
-
-          <div class="section-label"><span>Order Summary</span></div>
-          <div class="summary-box">
-            <div class="summary-header">
-              <div class="summary-title">📋 What's in your basket</div>
-              <button type="button" class="clear-btn" id="clearOrderBtn">
-                Clear Order
-              </button>
-            </div>
-            <div id="summary-lines">
-              <div class="summary-empty">
-                No items selected yet — add something above!
-              </div>
-            </div>
-          </div>
-
-          <div class="section-label" style="margin-top: 32px">
-            <span>Notes</span>
-          </div>
-          <div class="field">
-            <label for="notes">Anything else we should know?</label>
-            <textarea
-              id="notes"
-              placeholder="Add any notes about your order here..."
-            ></textarea>
-          </div>
-
-          <div class="section-label"><span>Payment</span></div>
-          <div class="payment-note">
-            <strong>Payment info:</strong> After submitting, we'll reach out
-            within 24 hours to confirm your order and share your total. Payment
-            must be received in full before we begin baking.
-            <div class="payment-methods">
-              <span class="pay-badge">💚 Venmo</span>
-              <span class="pay-badge">💙 Zelle</span>
-            </div>
-          </div>
-
-          <div class="checkbox-row" id="checkboxRow">
-            <input type="checkbox" id="payAgree" required />
-            <span
-              >I understand that payment must be received in full before baking
-              begins, and that orders must be placed at least
-              <strong>48 hours in advance</strong>.</span
-            >
-          </div>
-
-          <div class="submit-area">
-            <button type="submit" class="submit-btn" id="submitBtn" disabled>
-              🔥 Submit My Order
-            </button>
-            <p class="submit-sub">
-              You'll hear from us within 24 hours to confirm
-            </p>
-          </div>
+          <!-- /.form-layout -->
         </form>
+
+        <!-- MOBILE BASKET BAR -->
+        <div
+          class="mobile-basket-bar"
+          id="mobileBar"
+          onclick="
+            document
+              .querySelector('.summary-sidebar')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
+        >
+          <div class="mobile-bar-badge" id="mobileBarBadge">0</div>
+          <div class="mobile-bar-label">View basket</div>
+          <div class="mobile-bar-total" id="mobileBarTotal">$0</div>
+        </div>
 
         <div class="success-screen" id="successScreen">
           <div class="success-icon">🏕️</div>

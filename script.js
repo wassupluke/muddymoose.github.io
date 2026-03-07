@@ -161,14 +161,24 @@ function updateSummary() {
   if (!html) {
     summaryLines.innerHTML =
       '<div class="summary-empty">No items selected yet \u2014 add something above!</div>';
-    return;
+  } else {
+    html +=
+      '<div class="summary-line" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(250,243,228,0.2);font-weight:700;color:var(--wheat);"><span>Estimated Total</span><span>$' +
+      total +
+      "</span></div>";
+    summaryLines.innerHTML = html;
   }
 
-  html +=
-    '<div class="summary-line" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(250,243,228,0.2);font-weight:700;color:var(--wheat);"><span>Estimated Total</span><span>$' +
-    total +
-    "</span></div>";
-  summaryLines.innerHTML = html;
+  const itemCount =
+    (breadQty > 0 ? 1 : 0) +
+    Object.values(sizedQty).filter((v) => v > 0).length +
+    easterItems.length;
+  const bar = document.getElementById("mobileBar");
+  if (bar) {
+    bar.classList.toggle("has-items", itemCount > 0);
+    document.getElementById("mobileBarBadge").textContent = itemCount;
+    document.getElementById("mobileBarTotal").textContent = "$" + total;
+  }
 }
 
 summaryLines.addEventListener("click", function (e) {
