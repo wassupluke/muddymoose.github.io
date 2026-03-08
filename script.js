@@ -56,11 +56,11 @@ function toISO(d) {
   if (new Date() <= easterDeadline) {
     const opt = document.createElement("option");
     opt.value = "2026-04-01";
-    opt.textContent = "\uD83D\uDC23 Easter Box Pickup \u2014 Tuesday April 1st";
+    opt.textContent = "\uD83D\uDC23 Easter Box Pickup \u2026 Wednesday April 1st";
     opt.dataset.tue = "2026-04-01";
     opt.dataset.wed = "2026-04-02";
-    opt.dataset.tueLabel = "Tuesday, April 1";
-    opt.dataset.wedLabel = "Wednesday, April 2";
+    opt.dataset.tueLabel = "Wednesday, April 1";
+    opt.dataset.wedLabel = "Thursday, April 2";
     opt.dataset.easter = "true";
     pickupSelect.appendChild(opt);
   }
