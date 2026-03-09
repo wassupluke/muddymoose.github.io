@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "script"
+  },
+  "rules": {
+    "no-undef": "error",
+    "no-unused-vars": "warn",
+    "no-unreachable": "error",
+    "no-constant-condition": "error",
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "no-empty": "warn",
+    "no-redeclare": "error",
+    "no-self-assign": "error",
+    "use-isnan": "error",
+    "valid-typeof": "error"
+  }
+}
