@@ -9,10 +9,26 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+          document.documentElement.setAttribute("data-theme", "dark");
+      })();
+    </script>
   </head>
   <body>
     <div class="page-wrap">
       <header>
+        <button
+          type="button"
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+        >
+          🌙
+        </button>
         <div class="header-inner">
           <div class="header-text">
             <p class="tagline">Fresh milled · Baked with love</p>
@@ -326,10 +342,8 @@
               <div class="easter-grid">
                 <div class="easter-card">
                   <div class="easter-card-header">
-                    <div>
-                      <div class="easter-card-name">The Nestling</div>
-                      <div class="easter-card-serves">Serves 2–3</div>
-                    </div>
+                    <div class="easter-card-name">The Nestling</div>
+                    <div class="easter-card-serves">Serves 2–3</div>
                     <div class="easter-card-price">$28</div>
                   </div>
                   <ul class="easter-items">
@@ -352,10 +366,8 @@
                 <div class="easter-card easter-card-featured">
                   <div class="easter-featured-tag">Most Popular</div>
                   <div class="easter-card-header">
-                    <div>
-                      <div class="easter-card-name">The Meadow</div>
-                      <div class="easter-card-serves">Serves 4–6</div>
-                    </div>
+                    <div class="easter-card-name">The Meadow</div>
+                    <div class="easter-card-serves">Serves 4–6</div>
                     <div class="easter-card-price">$48</div>
                   </div>
                   <ul class="easter-items">
@@ -378,10 +390,8 @@
 
                 <div class="easter-card">
                   <div class="easter-card-header">
-                    <div>
-                      <div class="easter-card-name">The Grand Basket</div>
-                      <div class="easter-card-serves">Serves 8–10</div>
-                    </div>
+                    <div class="easter-card-name">The Grand Basket</div>
+                    <div class="easter-card-serves">Serves 8–10</div>
                     <div class="easter-card-price">$72</div>
                   </div>
                   <ul class="easter-items">
@@ -438,8 +448,8 @@
                 payment, you'll get a confirmation email from us and your order
                 is locked in!
                 <div class="payment-methods">
-                  <span class="pay-badge">💚 Venmo</span>
-                  <span class="pay-badge">💙 Zelle</span>
+                  <span class="pay-badge">💙 Venmo</span>
+                  <span class="pay-badge">💜 Zelle</span>
                 </div>
               </div>
 
@@ -502,11 +512,11 @@
             <div class="qr-codes">
               <div class="qr-card">
                 <img src="venmo-qr.png" alt="Venmo QR Code" />
-                <span class="qr-label">💚 Venmo</span>
+                <span class="qr-label">💙 Venmo</span>
               </div>
               <div class="qr-card">
                 <img src="zelle-qr.png" alt="Zelle QR Code" />
-                <span class="qr-label">💙 Zelle</span>
+                <span class="qr-label">💜 Zelle</span>
               </div>
             </div>
           </div>
