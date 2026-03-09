@@ -56,7 +56,8 @@ function toISO(d) {
   if (new Date() <= easterDeadline) {
     const opt = document.createElement("option");
     opt.value = "2026-04-01";
-    opt.textContent = "\uD83D\uDC23 Easter Box Pickup \u2026 Wednesday April 1st";
+    opt.textContent =
+      "\uD83D\uDC23 Easter Box Pickup \u2026 Wednesday April 1st";
     opt.dataset.tue = "2026-04-01";
     opt.dataset.wed = "2026-04-02";
     opt.dataset.tueLabel = "Wednesday, April 1";
@@ -446,6 +447,15 @@ async function handleSubmit(e) {
     });
 
     if (res.ok) {
+      const confSummary = document.getElementById("confirmationSummary");
+      let confHTML = "<h3>Your Order</h3>";
+      orderLines.forEach(function (line) {
+        confHTML += '<div class="conf-line">' + line + "</div>";
+      });
+      confHTML +=
+        '<div class="conf-total">Estimated Total: $' + total + "</div>";
+      confSummary.innerHTML = confHTML;
+
       document.getElementById("orderForm").style.display = "none";
       document.getElementById("successScreen").classList.add("show");
       window.scrollTo({ top: 0, behavior: "smooth" });

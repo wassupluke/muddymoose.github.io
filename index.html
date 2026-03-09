@@ -436,9 +436,12 @@
 
               <div class="section-label"><span>Payment</span></div>
               <div class="payment-note">
-                <strong>Payment info:</strong> After submitting, we'll reach out
-                within 24 hours to confirm your order and share your total.
-                Payment must be received in full before we begin baking.
+                <strong>How payment works:</strong> After submitting your order,
+                you'll be shown your full order summary and total along with our
+                Venmo and Zelle QR codes so you can pay right away. Your order
+                is not confirmed until payment is received. Once we receive your
+                payment, you'll get a confirmation email from us and your order
+                is locked in!
                 <div class="payment-methods">
                   <span class="pay-badge">💚 Venmo</span>
                   <span class="pay-badge">💙 Zelle</span>
@@ -492,9 +495,26 @@
           <div class="success-icon">🏕️</div>
           <h2>Order Received!</h2>
           <p>
-            Thanks for your order! We'll be in touch within 24 hours to confirm
-            your items and share payment details. We can't wait to bake for you!
+            Thanks for your order! Pay now using one of the QR codes below to
+            lock in your order. Once we receive payment, you'll get a
+            confirmation email. We can't wait to bake for you!
           </p>
+
+          <div class="confirmation-summary" id="confirmationSummary"></div>
+
+          <div class="qr-section">
+            <h3>Pay with Venmo or Zelle</h3>
+            <div class="qr-codes">
+              <div class="qr-card">
+                <img src="venmo-qr.png" alt="Venmo QR Code" />
+                <span class="qr-label">💚 Venmo</span>
+              </div>
+              <div class="qr-card">
+                <img src="zelle-qr.png" alt="Zelle QR Code" />
+                <span class="qr-label">💙 Zelle</span>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
