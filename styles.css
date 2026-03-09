@@ -511,6 +511,7 @@ select {
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 10px;
+  justify-content: center;
 }
 
 .pay-badge {
@@ -620,6 +621,81 @@ select {
   max-width: 460px;
   margin: 0 auto;
   line-height: 1.7;
+}
+
+.confirmation-summary {
+  max-width: 400px;
+  margin: 28px auto;
+  background: var(--slate);
+  color: var(--cream);
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: left;
+}
+
+.confirmation-summary h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--wheat);
+}
+
+.conf-line {
+  font-size: 0.85rem;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(250, 243, 228, 0.1);
+}
+
+.conf-total {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(250, 243, 228, 0.2);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--wheat);
+}
+
+.qr-section {
+  max-width: 500px;
+  margin: 32px auto 0;
+}
+
+.qr-section h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: var(--slate);
+  margin-bottom: 16px;
+}
+
+.qr-codes {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.qr-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 200px;
+}
+
+.qr-card img {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.qr-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--slate);
 }
 
 .size-btn {
