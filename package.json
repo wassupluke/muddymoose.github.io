@@ -4,8 +4,8 @@
     "lint:html": "htmlhint index.html",
     "lint:css": "stylelint '**/*.css'",
     "lint:js": "eslint '**/*.js' --ignore-pattern node_modules --ignore-pattern tests --ignore-pattern playwright.config.js",
-    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
-    "test": "npx playwright test"
+    "lint": "pnpm run lint:html && pnpm run lint:css && pnpm run lint:js",
+    "test": "pnpm exec playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.42.0",

@@ -33,10 +33,10 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: npx playwright install --with-deps chromium
-      - run: npx serve . -l 3000 &
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpx serve . -l 3000 &
       - run: sleep 2
-      - run: npx playwright test
+      - run: pnpm exec playwright test
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
