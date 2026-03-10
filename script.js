@@ -1,3 +1,23 @@
+// Theme toggle
+(function () {
+  const btn = document.getElementById("themeToggle");
+  function updateIcon() {
+    btn.textContent =
+      document.documentElement.getAttribute("data-theme") === "dark"
+        ? "\u2600\uFE0F"
+        : "\uD83C\uDF19";
+  }
+  updateIcon();
+  btn.addEventListener("click", function () {
+    const isDark =
+      document.documentElement.getAttribute("data-theme") === "dark";
+    const next = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    updateIcon();
+  });
+})();
+
 let breadQty = 0;
 let easterItems = [];
 
