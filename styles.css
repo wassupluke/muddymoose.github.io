@@ -19,6 +19,7 @@
   --error-color: #c0392b;
   --surface-dark: #2e3f3c;
   --text-on-dark: #faf3e4;
+  --text-on-light: #000;
 }
 
 [data-theme="dark"] {
@@ -690,6 +691,7 @@ select {
 .qr-section {
   max-width: 500px;
   margin: 32px auto 0;
+  text-align: center;
 }
 
 .qr-section h3 {
@@ -699,11 +701,41 @@ select {
   margin-bottom: 16px;
 }
 
+.qr-section p {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: var(--slate);
+  font-weight: 500;
+}
+
 .qr-codes {
   display: flex;
   gap: 24px;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.qr-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.qr-card-link:hover .qr-card,
+.qr-card-link:focus .qr-card {
+  transform: scale(1.04);   /* subtle grow effect */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+.qr-card-link:focus {
+  outline: none;
+}
+
+.qr-card-link:focus .qr-card {
+  outline: 3px solid var(--fire);
+  outline-offset: 3px;
 }
 
 .qr-card {
@@ -727,7 +759,7 @@ select {
 .qr-label {
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--slate);
+  color: var(--text-on-light);
 }
 
 .size-btn {
