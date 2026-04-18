@@ -10,9 +10,9 @@
   --card-bg: #f0ede3;
   --card-featured-bg: #fdf6e8;
   --input-bg: var(--smoke);
-  --input-border: rgba(46, 63, 60, 0.2);
-  --body-gradient-a: rgba(217, 119, 0, 0.06);
-  --body-gradient-b: rgba(46, 63, 60, 0.07);
+  --input-border: rgb(46, 63, 60, 0.2);
+  --body-gradient-a: rgb(217, 119, 0, 0.06);
+  --body-gradient-b: rgb(46, 63, 60, 0.07);
   --qty-bg: white;
   --easter-green: #2e4a2e;
   --easter-green-light: #3a5c3a;
@@ -31,9 +31,9 @@
   --card-bg: #243430;
   --card-featured-bg: #2a3228;
   --input-bg: #243430;
-  --input-border: rgba(250, 243, 228, 0.15);
-  --body-gradient-a: rgba(217, 119, 0, 0.04);
-  --body-gradient-b: rgba(250, 243, 228, 0.03);
+  --input-border: rgb(250, 243, 228, 0.15);
+  --body-gradient-a: rgb(217, 119, 0, 0.04);
+  --body-gradient-b: rgb(250, 243, 228, 0.03);
   --qty-bg: #1a2422;
   --easter-green: #3a5c3a;
   --easter-green-light: #4a7a4a;
@@ -120,7 +120,7 @@ header::after {
   border: 4px solid var(--fire);
   box-shadow:
     0 0 0 3px var(--wheat),
-    0 8px 32px rgba(0, 0, 0, 0.4);
+    0 8px 32px rgb(0, 0, 0, 0.4);
   flex-shrink: 0;
   background: transparent;
 }
@@ -159,7 +159,7 @@ h1 span {
 
 .header-note {
   font-size: 0.82rem;
-  color: rgba(250, 243, 228, 0.65);
+  color: rgb(250, 243, 228, 0.65);
   font-style: italic;
   margin-top: 8px;
 }
@@ -262,7 +262,7 @@ input:focus,
 textarea:focus,
 select:focus {
   border-color: var(--fire);
-  box-shadow: 0 0 0 3px rgba(217, 119, 0, 0.15);
+  box-shadow: 0 0 0 3px rgb(217, 119, 0, 0.15);
 }
 
 textarea {
@@ -306,7 +306,7 @@ select {
 
 .menu-card:hover {
   border-color: var(--fire);
-  box-shadow: 0 4px 20px rgba(217, 119, 0, 0.12);
+  box-shadow: 0 4px 20px rgb(217, 119, 0, 0.12);
   transform: translateY(-2px);
 }
 
@@ -470,7 +470,7 @@ select {
   top: 3px;
   left: 3px;
   transition: transform 0.2s;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgb(0, 0, 0, 0.2);
 }
 
 .toggle-switch input:checked + .toggle-track {
@@ -512,21 +512,21 @@ select {
   justify-content: space-between;
   font-size: 0.85rem;
   padding: 5px 0;
-  border-bottom: 1px solid rgba(250, 243, 228, 0.08);
-  color: rgba(250, 243, 228, 0.8);
+  border-bottom: 1px solid rgb(250, 243, 228, 0.08);
+  color: rgb(250, 243, 228, 0.8);
 }
 
 .summary-empty {
   font-size: 0.85rem;
   font-style: italic;
-  color: rgba(250, 243, 228, 0.4);
+  color: rgb(250, 243, 228, 0.4);
   text-align: center;
   padding: 8px 0;
 }
 
 .payment-note {
-  background: rgba(217, 119, 0, 0.08);
-  border: 1px solid rgba(217, 119, 0, 0.25);
+  background: rgb(217, 119, 0, 0.08);
+  border: 1px solid rgb(217, 119, 0, 0.25);
   border-radius: 10px;
   padding: 16px 20px;
   margin-top: 20px;
@@ -599,7 +599,7 @@ select {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(217, 119, 0, 0.35);
+  box-shadow: 0 4px 20px rgb(217, 119, 0, 0.35);
   transition:
     transform 0.15s,
     box-shadow 0.15s;
@@ -607,7 +607,7 @@ select {
 
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(217, 119, 0, 0.45);
+  box-shadow: 0 8px 28px rgb(217, 119, 0, 0.45);
 }
 
 .submit-btn:active:not(:disabled) {
@@ -676,13 +676,13 @@ select {
 .conf-line {
   font-size: 0.85rem;
   padding: 4px 0;
-  border-bottom: 1px solid rgba(250, 243, 228, 0.1);
+  border-bottom: 1px solid rgb(250, 243, 228, 0.1);
 }
 
 .conf-total {
   margin-top: 10px;
   padding-top: 10px;
-  border-top: 1px solid rgba(250, 243, 228, 0.2);
+  border-top: 1px solid rgb(250, 243, 228, 0.2);
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--wheat);
@@ -725,7 +725,7 @@ select {
 .qr-card-link:hover .qr-card,
 .qr-card-link:focus .qr-card {
   transform: scale(1.04);   /* subtle grow effect */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 16px rgb(0,0,0,0.15);
   transition: all 0.2s ease;
 }
 
@@ -742,7 +742,7 @@ select {
   background: white;
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgb(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -797,7 +797,7 @@ select {
   border-radius: 14px;
   padding: 20px 24px;
   margin-bottom: 20px;
-  border: 2px solid rgba(232, 201, 122, 0.3);
+  border: 2px solid rgb(232, 201, 122, 0.3);
 }
 
 .easter-banner-inner {
@@ -822,7 +822,7 @@ select {
 
 .easter-subtitle {
   font-size: 0.78rem;
-  color: rgba(232, 201, 122, 0.65);
+  color: rgb(232, 201, 122, 0.65);
   font-style: italic;
   margin-top: 3px;
 }
@@ -837,7 +837,7 @@ select {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(232, 201, 122, 0.6);
+  color: rgb(232, 201, 122, 0.6);
   font-weight: 700;
 }
 
@@ -850,7 +850,7 @@ select {
 
 .easter-deadline-pickup {
   font-size: 0.73rem;
-  color: rgba(232, 201, 122, 0.7);
+  color: rgb(232, 201, 122, 0.7);
   font-style: italic;
   margin-top: 2px;
 }
@@ -905,14 +905,14 @@ select {
 
 .easter-card:hover {
   border-color: var(--fire);
-  box-shadow: 0 4px 20px rgba(217, 119, 0, 0.12);
+  box-shadow: 0 4px 20px rgb(217, 119, 0, 0.12);
   transform: translateY(-2px);
 }
 
 .easter-card-featured {
   border-color: var(--fire);
   background: var(--card-featured-bg);
-  box-shadow: 0 4px 16px rgba(217, 119, 0, 0.1);
+  box-shadow: 0 4px 16px rgb(217, 119, 0, 0.1);
 }
 
 .easter-featured-tag {
@@ -995,17 +995,17 @@ select {
     transform 0.15s,
     box-shadow 0.15s;
   margin-top: auto;
-  box-shadow: 0 2px 10px rgba(217, 119, 0, 0.2);
+  box-shadow: 0 2px 10px rgb(217, 119, 0, 0.2);
 }
 
 .easter-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(217, 119, 0, 0.35);
+  box-shadow: 0 4px 16px rgb(217, 119, 0, 0.35);
 }
 
 footer {
   background: var(--surface-dark);
-  color: rgba(250, 243, 228, 0.45);
+  color: rgb(250, 243, 228, 0.45);
   text-align: center;
   padding: 20px;
   font-size: 0.75rem;
@@ -1039,7 +1039,7 @@ footer::before {
 input.invalid,
 select.invalid {
   border-color: var(--fire) !important;
-  box-shadow: 0 0 0 3px rgba(217, 119, 0, 0.2) !important;
+  box-shadow: 0 0 0 3px rgb(217, 119, 0, 0.2) !important;
 }
 
 @keyframes shake {
@@ -1081,7 +1081,7 @@ select.invalid {
   top: 16px;
   right: 16px;
   background: none;
-  border: 1.5px solid rgba(250, 243, 228, 0.25);
+  border: 1.5px solid rgb(250, 243, 228, 0.25);
   border-radius: 50%;
   width: 38px;
   height: 38px;
@@ -1098,7 +1098,7 @@ select.invalid {
 
 .theme-toggle:hover {
   border-color: var(--wheat);
-  background: rgba(250, 243, 228, 0.1);
+  background: rgb(250, 243, 228, 0.1);
 }
 
 [data-theme="dark"] select {
@@ -1199,7 +1199,7 @@ select.invalid {
   border-radius: 14px;
   padding: 20px 24px;
   margin-bottom: 20px;
-  border: 2px solid rgba(240, 180, 210, 0.3);
+  border: 2px solid rgb(240, 180, 210, 0.3);
 }
 
 .mothers-banner-inner {
@@ -1224,7 +1224,7 @@ select.invalid {
 
 .mothers-subtitle {
   font-size: 0.78rem;
-  color: rgba(240, 201, 216, 0.65);
+  color: rgb(240, 201, 216, 0.65);
   font-style: italic;
   margin-top: 3px;
 }
@@ -1239,7 +1239,7 @@ select.invalid {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(240, 201, 216, 0.6);
+  color: rgb(240, 201, 216, 0.6);
   font-weight: 700;
 }
 
@@ -1252,7 +1252,7 @@ select.invalid {
 
 .mothers-deadline-pickup {
   font-size: 0.73rem;
-  color: rgba(240, 201, 216, 0.7);
+  color: rgb(240, 201, 216, 0.7);
   font-style: italic;
   margin-top: 2px;
 }
@@ -1287,14 +1287,14 @@ select.invalid {
 
 .mothers-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(140, 60, 100, 0.12);
+  box-shadow: 0 6px 24px rgb(140, 60, 100, 0.12);
   border-color: #8c3c64;
 }
 
 .mothers-card-featured {
   border-color: var(--fire);
   background: var(--card-featured-bg);
-  box-shadow: 0 4px 16px rgba(217, 119, 0, 0.1);
+  box-shadow: 0 4px 16px rgb(217, 119, 0, 0.1);
 }
 
 .mothers-featured-tag {
