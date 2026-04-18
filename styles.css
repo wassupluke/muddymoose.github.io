@@ -1209,7 +1209,10 @@ select.invalid {
   flex-wrap: wrap;
 }
 
-.mothers-icon { font-size: 2.2rem; flex-shrink: 0; }
+.mothers-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
 
 .mothers-title {
   font-family: "Playfair Display", serif;
@@ -1226,7 +1229,11 @@ select.invalid {
   margin-top: 3px;
 }
 
-.mothers-deadline { margin-left: auto; text-align: right; flex-shrink: 0; }
+.mothers-deadline {
+  margin-left: auto;
+  text-align: right;
+  flex-shrink: 0;
+}
 
 .mothers-deadline-label {
   font-size: 0.68rem;
@@ -1258,8 +1265,13 @@ select.invalid {
 }
 
 @media (max-width: 580px) {
-  .mothers-grid { grid-template-columns: 1fr; }
-  .mothers-deadline { margin-left: 0; text-align: left; }
+  .mothers-grid {
+    grid-template-columns: 1fr;
+  }
+  .mothers-deadline {
+    margin-left: 0;
+    text-align: left;
+  }
 }
 
 .mothers-card {

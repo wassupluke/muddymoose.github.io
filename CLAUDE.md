@@ -24,3 +24,5 @@ Single-page static site — a bakery order form. No framework, no build step.
 Payment QR codes (`venmo-qr.png`, `zelle-qr.png`) are embedded directly in the repo.
 
 Linting is configured via `.eslintrc.json` (JS), `.stylelintrc.json` (CSS), and `.htmlhintrc` (HTML).
+
+CSS rules must never have multiple declarations on a single line — stylelint enforces `declaration-block-single-line-max-declarations: 1`.

@@ -31,13 +31,24 @@ const sizedQty = {
 };
 
 const sizedMeta = {
-  cinroll_4:  { label: "Cinnamon Rolls (4 rolls)",        price: 14 },
-  cinroll_12: { label: "Cinnamon Rolls (1 dozen)",         price: 38 },
-  cookies_6:  { label: "Choc Chip Cookies (\u00bd dozen)", price: 10 },
-  cookies_12: { label: "Choc Chip Cookies (1 dozen)",      price: 18 },
-  dinner_6:   { label: "Dinner Rolls (\u00bd dozen)",      price: 10 },
-  dinner_12:  { label: "Dinner Rolls (1 dozen)",           price: 18 },
+  cinroll_4:  { label: "Cinnamon Rolls (4 rolls)"         },
+  cinroll_12: { label: "Cinnamon Rolls (1 dozen)"         },
+  cookies_6:  { label: "Choc Chip Cookies (\u00bd dozen)" },
+  cookies_12: { label: "Choc Chip Cookies (1 dozen)"      },
+  dinner_6:   { label: "Dinner Rolls (\u00bd dozen)"      },
+  dinner_12:  { label: "Dinner Rolls (1 dozen)"           },
 };
+
+// Prices live in data-price attributes in HTML — single source of truth
+document.querySelectorAll("[data-sized][data-delta='1'][data-price]").forEach((btn) => {
+  if (sizedMeta[btn.dataset.sized]) {
+    sizedMeta[btn.dataset.sized].price = Number(btn.dataset.price);
+  }
+});
+
+const breadPrice = Number(
+  document.querySelector("[data-qty='bread'][data-delta='1']").dataset.price
+);
 
 const pickupSelect = document.getElementById("pickup");
 const timeSelect   = document.getElementById("pickupTime");
@@ -132,7 +143,7 @@ function updateSummary() {
   const rmStyle = 'background:none;border:none;color:var(--ember);cursor:pointer;font-size:0.75rem;margin-left:6px;font-family:inherit;';
 
   if (breadQty > 0) {
-    const sub = breadQty * 10;
+    const sub = breadQty * breadPrice;
     total += sub;
     html += '<div class="summary-line"><span>Sandwich Bread \u00d7 ' + breadQty +
       ' <button type="button" class="remove-qty" data-remove-bread style="' + rmStyle + '">\u2715 remove</button>' +
@@ -319,7 +330,7 @@ async function handleSubmit(e) {
   let total = 0;
 
   if (breadQty > 0) {
-    const sub = breadQty * 10;
+    const sub = breadQty * breadPrice;
     total += sub;
     orderLines.push("Sandwich Bread x" + breadQty + " \u2014 $" + sub);
   }
