@@ -129,10 +129,14 @@ function updateSummary() {
   let html  = "";
   let total = 0;
 
+  const rmStyle = 'background:none;border:none;color:var(--ember);cursor:pointer;font-size:0.75rem;margin-left:6px;font-family:inherit;';
+
   if (breadQty > 0) {
     const sub = breadQty * 10;
     total += sub;
-    html += '<div class="summary-line"><span>Sandwich Bread \u00d7 ' + breadQty + "</span><span>$" + sub + "</span></div>";
+    html += '<div class="summary-line"><span>Sandwich Bread \u00d7 ' + breadQty +
+      ' <button type="button" class="remove-qty" data-remove-bread style="' + rmStyle + '">\u2715 remove</button>' +
+      "</span><span>$" + sub + "</span></div>";
   }
 
   Object.entries(sizedQty).forEach(([key, qty]) => {
@@ -140,7 +144,9 @@ function updateSummary() {
       const meta = sizedMeta[key];
       const sub  = qty * meta.price;
       total += sub;
-      html += '<div class="summary-line"><span>' + meta.label + " \u00d7 " + qty + "</span><span>$" + sub + "</span></div>";
+      html += '<div class="summary-line"><span>' + meta.label + " \u00d7 " + qty +
+        ' <button type="button" class="remove-qty" data-remove-sized="' + key + '" style="' + rmStyle + '">\u2715 remove</button>' +
+        "</span><span>$" + sub + "</span></div>";
     }
   });
 
@@ -176,10 +182,21 @@ function updateSummary() {
 }
 
 summaryLines.addEventListener("click", function (e) {
-  const btn = e.target.closest(".remove-special");
+  const btn = e.target.closest(".remove-special, .remove-qty");
   if (!btn) return;
-  const idx = parseInt(btn.dataset.index, 10);
-  specialItems.splice(idx, 1);
+
+  if (btn.classList.contains("remove-special")) {
+    const idx = parseInt(btn.dataset.index, 10);
+    specialItems.splice(idx, 1);
+  } else if ("removeBread" in btn.dataset) {
+    breadQty = 0;
+    document.getElementById("bread-display").textContent = 0;
+  } else if (btn.dataset.removeSized) {
+    const key = btn.dataset.removeSized;
+    sizedQty[key] = 0;
+    document.getElementById(key + "-display").textContent = 0;
+  }
+
   updateSummary();
   checkValidity();
 });
