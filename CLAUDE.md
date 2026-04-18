@@ -26,3 +26,11 @@ Payment QR codes (`venmo-qr.png`, `zelle-qr.png`) are embedded directly in the r
 Linting is configured via `.eslintrc.json` (JS), `.stylelintrc.json` (CSS), and `.htmlhintrc` (HTML).
 
 CSS rules must never have multiple declarations on a single line — stylelint enforces `declaration-block-single-line-max-declarations: 1`.
+
+## Deployment
+
+The site is published as a GitHub Page from `muddymoose/muddymoose.github.io:main` at the root directory.
+
+## Cache Busting
+
+`index.html` references `styles.css` and `script.js` with a `?v=N` query string (e.g. `styles.css?v=2`). Bump the version number on both references whenever making significant changes to CSS or JS so returning visitors pick up the new files instead of serving stale cache.
