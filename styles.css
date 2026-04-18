@@ -1191,3 +1191,177 @@ select.invalid {
   font-weight: 700;
   color: var(--wheat);
 }
+
+/* ── MOTHER'S DAY BOXES ── */
+.mothers-banner {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #5c2d4a, #7a3d60);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(240, 180, 210, 0.3);
+}
+
+.mothers-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mothers-icon { font-size: 2.2rem; flex-shrink: 0; }
+
+.mothers-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f0c9d8;
+  line-height: 1.2;
+}
+
+.mothers-subtitle {
+  font-size: 0.78rem;
+  color: rgba(240, 201, 216, 0.65);
+  font-style: italic;
+  margin-top: 3px;
+}
+
+.mothers-deadline { margin-left: auto; text-align: right; flex-shrink: 0; }
+
+.mothers-deadline-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(240, 201, 216, 0.6);
+  font-weight: 700;
+}
+
+.mothers-deadline-date {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--fire);
+}
+
+.mothers-deadline-pickup {
+  font-size: 0.73rem;
+  color: rgba(240, 201, 216, 0.7);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.mothers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 580px) {
+  .mothers-grid { grid-template-columns: 1fr; }
+  .mothers-deadline { margin-left: 0; text-align: left; }
+}
+
+.mothers-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--input-border);
+  border-radius: 12px;
+  padding: 20px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.mothers-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(140, 60, 100, 0.12);
+  border-color: #8c3c64;
+}
+
+.mothers-card-featured {
+  border-color: var(--fire);
+  background: var(--card-featured-bg);
+  box-shadow: 0 4px 16px rgba(217, 119, 0, 0.1);
+}
+
+.mothers-featured-tag {
+  position: absolute;
+  top: -1px;
+  right: 16px;
+  background: var(--fire);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+.mothers-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+  padding-top: 4px;
+}
+
+.mothers-card-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--slate);
+  line-height: 1.2;
+}
+
+.mothers-card-serves {
+  font-size: 0.73rem;
+  color: var(--forest);
+  font-style: italic;
+  margin-top: 3px;
+}
+
+.mothers-card-price {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--fire);
+  line-height: 1;
+}
+
+.mothers-items {
+  list-style: none;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.mothers-items li {
+  font-size: 0.8rem;
+  color: var(--slate);
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--input-border);
+  line-height: 1.4;
+}
+
+.mothers-items li:last-child { border-bottom: none; }
+
+.mothers-btn {
+  width: 100%;
+  background: #5c2d4a;
+  color: #f0c9d8;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  margin-top: auto;
+}
+
+.mothers-btn:hover {
+  background: var(--fire);
+  color: white;
+}
