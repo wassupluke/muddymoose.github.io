@@ -3,13 +3,14 @@
   "scripts": {
     "lint:html": "htmlhint index.html",
     "lint:css": "stylelint '**/*.css'",
-    "lint:js": "eslint '**/*.js' --ignore-pattern node_modules --ignore-pattern tests --ignore-pattern playwright.config.js",
+    "lint:js": "eslint '**/*.js'",
     "lint": "pnpm run lint:html && pnpm run lint:css && pnpm run lint:js",
     "test": "pnpm exec playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.59.1",
-    "eslint": "^8.57.0",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
     "htmlhint": "^1.1.4",
     "serve": "^14.2.0",
     "stylelint": "^17.8.0",
