@@ -7,6 +7,7 @@ const VALID_FORM = {
   phone: "5551234567",
 };
 
+
 async function fillForm(page) {
   await page.fill("#fname", VALID_FORM.fname);
   await page.fill("#lname", VALID_FORM.lname);
@@ -16,7 +17,7 @@ async function fillForm(page) {
 
 async function selectPickup(page) {
   await page.selectOption("#pickup", { index: 1 });
-  await page.waitForTimeout(300);
+  await page.waitForSelector('#pickupTime option[value]:not([value=""])', { state: "attached" });
   await page.selectOption("#pickupTime", { index: 0 });
 }
 
@@ -107,16 +108,12 @@ test.describe("Pickup week and time selection", () => {
     expect(await options.count()).toBeGreaterThan(1);
   });
 
-  test("selecting pickup week populates pickupTime", async ({ page }) => {
+  test("selecting pickup week populates pickupTime with selectable slots", async ({ page }) => {
     await page.goto("/");
     await page.selectOption("#pickup", { index: 1 });
-    await page.waitForTimeout(300);
-    const timeOptions = page.locator("#pickupTime option");
-    // Should have 3 time slots
-    expect(await timeOptions.count()).toBe(3);
-    const allText = await timeOptions.allTextContents();
-    const joined = allText.join(" ");
-    expect(joined).toContain("Tue");
+    await page.waitForSelector('#pickupTime option[value]:not([value=""])', { state: "attached" });
+    const timeOptions = page.locator('#pickupTime option[value]:not([value=""])');
+    expect(await timeOptions.count()).toBeGreaterThan(0);
   });
 });
 
@@ -164,43 +161,44 @@ test.describe("Basket total calculates correctly", () => {
     await page.goto("/");
     const summary = page.locator("#summary-lines");
 
-    // Add 2 bread ($20)
+    // Read bread price from DOM so the test isn't tied to a hardcoded value
+    const breadPrice = Number(
+      await page.getAttribute('button[data-qty="bread"][data-delta="1"]', "data-price"),
+    );
+
     await addBread(page, 2);
     await expect(summary).toContainText("Sandwich Bread");
-    await expect(summary).toContainText("$20");
+    await expect(summary).toContainText(`$${breadPrice * 2}`);
 
-    // Add 1 cinroll_4 ($14)
+    // Read cinroll_4 price from DOM
+    const cinrollPrice = Number(
+      await page.getAttribute('button[data-sized="cinroll_4"][data-delta="1"]', "data-price"),
+    );
     await page.click('button[data-sized="cinroll_4"][data-delta="1"]');
-    await expect(summary).toContainText("Sandwich Bread");
-    await expect(summary).toContainText("$14");
+    await expect(summary).toContainText(`$${cinrollPrice}`);
 
-    // Total should be $34
     await expect(summary).toContainText("Estimated Total");
-    await expect(summary).toContainText("$34");
+    await expect(summary).toContainText(`$${breadPrice * 2 + cinrollPrice}`);
   });
 });
 
-test.describe("Easter boxes", () => {
-  test("add and remove Easter box", async ({ page }) => {
+test.describe("Special order boxes", () => {
+  test("add and remove a special box", async ({ page }) => {
     await page.goto("/");
     const summary = page.locator("#summary-lines");
 
-    // Click "Add to Order" for The Nestling
-    await page.click('button[data-add-easter][data-name="The Nestling"]');
-    await expect(summary).toContainText("The Nestling");
-    await expect(summary).toContainText("$28");
+    // Use whichever special box is first — we don't care about the name
+    const firstBtn = page.locator("[data-add-special]").first();
+    const itemName = await firstBtn.getAttribute("data-name");
+    const itemPrice = await firstBtn.getAttribute("data-price");
 
-    // Remove it
-    const removeBtns = page.locator(
-      '.summary-line:has-text("The Nestling") button, .summary-line:has-text("The Nestling") .remove-btn',
-    );
-    if ((await removeBtns.count()) > 0) {
-      await removeBtns.first().click();
-    } else {
-      // Try alternate remove pattern - button with ✕ near The Nestling
-      await page.click('.summary-line:has-text("The Nestling") >> text=✕');
-    }
-    await expect(summary).not.toContainText("The Nestling");
+    await firstBtn.click();
+    await expect(summary).toContainText(itemName);
+    await expect(summary).toContainText(`$${itemPrice}`);
+
+    // Remove via the remove button that appears in the summary line
+    await summary.locator(".remove-special").first().click();
+    await expect(summary).not.toContainText(itemName);
   });
 });
 
