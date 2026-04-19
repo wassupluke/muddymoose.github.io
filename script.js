@@ -87,11 +87,11 @@ function toISO(d) {
   if (new Date() <= mothersDayDeadline) {
     const opt = document.createElement("option");
     opt.value = "2026-05-09";
-    opt.textContent = "\uD83C\uDF38 Mother\u2019s Day Boxes \u2026 Pickup Fri May 9 or Sat May 10";
-    opt.dataset.tue      = "2026-05-09";
-    opt.dataset.wed      = "2026-05-10";
-    opt.dataset.tueLabel = "Friday, May 9";
-    opt.dataset.wedLabel = "Saturday, May 10";
+    opt.textContent = "\uD83C\uDF38 Mother\u2019s Day Boxes \u2026 Pickup Fri May 8 or Sat May 9";
+    opt.dataset.tue      = "2026-05-08";
+    opt.dataset.wed      = "2026-05-09";
+    opt.dataset.tueLabel = "Friday, May 8";
+    opt.dataset.wedLabel = "Saturday, May 9";
     opt.dataset.special  = "true";
     pickupSelect.appendChild(opt);
   }
