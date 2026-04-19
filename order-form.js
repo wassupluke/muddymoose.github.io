@@ -83,8 +83,6 @@ function toISO(d) {
 }
 
 (function populatePickupOptions() {
-  pickupSelect.innerHTML = '<option value="">-- Select a pickup week --</option>';
-
   const mothersDayDeadline = new Date("2026-05-05T23:59:59");
   if (new Date() <= mothersDayDeadline) {
     const opt = document.createElement("option");
