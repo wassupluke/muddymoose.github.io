@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{site.title}}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Black+Han+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v={{cssHash}}" />
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+          document.documentElement.setAttribute("data-theme", "dark");
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="page-wrap">
+      <header>
+        <button
+          type="button"
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+        >
+          🌙
+        </button>
+        <div class="header-inner">
+          <div class="header-text">
+            <p class="tagline">{{site.tagline}}</p>
+            <h1>{{site.heading_primary}} <span>{{site.heading_accent}}</span></h1>
+            <p class="header-note">{{site.header_note}}</p>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <form id="orderForm" novalidate>
+          <div class="form-layout">
+            <div class="form-top">
+              <div class="section-label"><span>Your Info</span></div>
+
+              <div class="field-group">
+                <div class="field">
+                  <label for="fname"
+                    >First Name <span class="req">*</span></label
+                  >
+                  <input type="text" id="fname" placeholder="Jane" required />
+                  <div class="field-error" id="fname-error"></div>
+                </div>
+                <div class="field">
+                  <label for="lname"
+                    >Last Name <span class="req">*</span></label
+                  >
+                  <input type="text" id="lname" placeholder="Smith" required />
+                  <div class="field-error" id="lname-error"></div>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <div class="field">
+                  <label for="email">Email <span class="req">*</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="jane@email.com"
+                    required
+                  />
+                  <div class="field-error" id="email-error"></div>
+                </div>
+                <div class="field">
+                  <label for="phone"
+                    >Phone Number <span class="req">*</span></label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    placeholder="(555) 000-0000"
+                    required
+                  />
+                  <div class="field-error" id="phone-error"></div>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <div class="field">
+                  <label for="pickup"
+                    >Pickup Week <span class="req">*</span></label
+                  >
+                  <select id="pickup" required>
+                    <option value="">-- Select a pickup week --</option>
+                  </select>
+                  <div class="pickup-hint">
+                    {{pickup.note}}{{#if special_event.enabled}} {{special_event.icon}} {{special_event.pickup_label}}: order by {{formatDeadlineShort special_event.deadline}}, pickup {{formatPickupRange special_event.pickup_days}}.{{/if}}
+                  </div>
+                  <div class="field-error" id="pickup-error"></div>
+                </div>
+                <div class="field">
+                  <label for="pickupTime"
+                    >Pickup Day &amp; Time <span class="req">*</span></label
+                  >
+                  <select id="pickupTime" required>
+                    <option value="">-- Select pickup week first --</option>
+                  </select>
+                  <div class="field-error" id="pickupTime-error"></div>
+                </div>
+              </div>
+
+              <div class="section-label"><span>Your Order</span></div>
+
+              <div class="menu-grid">
+                {{#each menu}}
+                <div class="menu-card">
+                  <span class="card-icon">{{icon}}</span>
+                  <div class="card-title">{{name}}</div>
+                  <div class="card-desc">{{description}}</div>
+                  <div class="card-price">{{price_display}}</div>
+                  {{#if sizes}}
+                    {{#each sizes}}
+                    <div class="qty-row"{{#unless @first}} style="margin-top: 8px"{{/unless}}>
+                      <div class="qty-label">{{label}} — ${{price}}</div>
+                      <div class="qty-controls">
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="{{../id}}_s{{@index}}"
+                          data-delta="-1"
+                        >
+                          −
+                        </button>
+                        <div class="qty-display" id="{{../id}}_s{{@index}}-display">0</div>
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="{{../id}}_s{{@index}}"
+                          data-delta="1"
+                          data-price="{{price}}"
+                          data-label="{{../name}} ({{label}})"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    {{/each}}
+                  {{else}}
+                    <div class="qty-row">
+                      <div class="qty-label">{{unit_label}}</div>
+                      <div class="qty-controls">
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="{{id}}"
+                          data-delta="-1"
+                        >
+                          −
+                        </button>
+                        <div class="qty-display" id="{{id}}-display">0</div>
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="{{id}}"
+                          data-delta="1"
+                          data-price="{{price}}"
+                          data-label="{{name}}"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  {{/if}}
+                </div>
+                {{/each}}
+              </div>
+
+              {{#if special_event.enabled}}
+              <div class="special-banner">
+                <div class="special-banner-inner">
+                  <span class="special-icon">{{special_event.icon}}</span>
+                  <div>
+                    <div class="special-title">{{special_event.title}}</div>
+                    {{#if special_event.subtitle}}
+                    <div class="special-subtitle">{{special_event.subtitle}}</div>
+                    {{/if}}
+                  </div>
+                  <div class="special-deadline">
+                    <div class="special-deadline-label">Orders due</div>
+                    <div class="special-deadline-date">{{formatDeadlineShort special_event.deadline}}</div>
+                    <div class="special-deadline-pickup">
+                      Pickup: {{formatPickupRange special_event.pickup_days}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="special-grid">
+                {{#each special_event.boxes}}
+                <div class="special-card{{#if featured}} special-card-featured{{/if}}">
+                  {{#if featured}}<div class="special-featured-tag">Most Popular</div>{{/if}}
+                  <div class="special-card-header">
+                    <div>
+                      <div class="special-card-name">{{name}}</div>
+                      <div class="special-card-serves">Serves {{serves}}</div>
+                    </div>
+                    <div class="special-card-price">${{price}}</div>
+                  </div>
+                  <ul class="special-items">
+                    {{#each items}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                  </ul>
+                  <button
+                    type="button"
+                    class="special-btn"
+                    data-add-special
+                    data-name="{{name}}"
+                    data-price="{{price}}"
+                  >
+                    + Add to Order — ${{price}}
+                  </button>
+                </div>
+                {{/each}}
+              </div>
+              {{/if}}
+            </div>
+            <!-- /.form-top -->
+
+            <aside class="summary-sidebar">
+              <div class="section-label"><span>Order Summary</span></div>
+              <div class="summary-box">
+                <div class="summary-title">🧺 What's in your basket</div>
+                <div id="summary-lines">
+                  <div class="summary-empty">
+                    No items selected yet — add something above!
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+            <div class="form-bottom">
+              <div class="section-label" style="margin-top: 32px">
+                <span>Notes</span>
+              </div>
+              <div class="field">
+                <label for="notes">Anything else we should know?</label>
+                <textarea
+                  id="notes"
+                  placeholder="Add any notes about your order here..."
+                ></textarea>
+              </div>
+
+              <div class="section-label"><span>Payment</span></div>
+              <div class="payment-note">
+                <strong>How payment works:</strong> After submitting your order,
+                you'll be shown your full order summary and total along with our
+                Venmo and Zelle QR codes so you can pay right away. Your order
+                is not confirmed until payment is received. Once we receive your
+                payment, you'll get a confirmation email from us and your order
+                is locked in!
+                <div class="payment-methods">
+                  <span class="pay-badge">💙 Venmo</span>
+                  <span class="pay-badge">💜 Zelle</span>
+                </div>
+              </div>
+
+              <div class="checkbox-row" id="checkboxRow">
+                <input type="checkbox" id="payAgree" required />
+                <span
+                  >I understand that payment must be received in full before
+                  baking begins, and that orders must be placed at least
+                  <strong>{{site.advance_hours}} hours in advance</strong>.</span
+                >
+              </div>
+
+              <div class="submit-area">
+                <button
+                  type="submit"
+                  class="submit-btn"
+                  id="submitBtn"
+                  disabled
+                >
+                  🔥 Submit My Order
+                </button>
+                <p class="submit-sub">
+                  You'll hear from us within 24 hours to confirm
+                </p>
+              </div>
+            </div>
+            <!-- /.form-bottom -->
+          </div>
+          <!-- /.form-layout -->
+        </form>
+
+        <!-- MOBILE BASKET BAR -->
+        <div
+          class="mobile-basket-bar"
+          id="mobileBar"
+          onclick="document.querySelector('.summary-sidebar').scrollIntoView({ behavior: 'smooth' })"
+        >
+          <div class="mobile-bar-badge" id="mobileBarBadge">0</div>
+          <div class="mobile-bar-label">View basket</div>
+          <div class="mobile-bar-total" id="mobileBarTotal">$0</div>
+        </div>
+
+        <div class="success-screen" id="successScreen">
+          <div class="success-icon">🏕️</div>
+          <h2>{{site.success_heading}}</h2>
+          <p>{{site.success_message}}</p>
+
+          <div class="confirmation-summary" id="confirmationSummary"></div>
+
+          <div class="qr-section">
+            <h3>Pay with Venmo or Zelle</h3>
+            <div class="qr-codes">
+              <a
+                href="{{payment.venmo.qr_link}}"
+                target="_blank"
+                class="qr-card-link"
+              >
+                <div class="qr-card">
+                  <img src="{{payment.venmo.qr_image}}" alt="Venmo QR Code" />
+                  <span class="qr-label">💙 Venmo</span>
+                </div>
+              </a>
+              <a
+                href="{{payment.zelle.qr_link}}"
+                target="_blank"
+                class="qr-card-link"
+              >
+                <div class="qr-card">
+                  <img src="{{payment.zelle.qr_image}}" alt="Zelle QR Code" />
+                  <span class="qr-label">💜 Zelle</span>
+                </div>
+              </a>
+            </div>
+            <p>{{payment.venmo.handle}} | {{payment.zelle.email}}</p>
+          </div>
+        </div>
+      </main>
+
+      <footer>{{site.footer}}</footer>
+    </div>
+    <script src="script.js?v={{jsHash}}" defer></script>
+  </body>
+</html>

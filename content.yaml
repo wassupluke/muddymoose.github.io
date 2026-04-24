@@ -1,0 +1,169 @@
+# ═══════════════════════════════════════════════════════════════════════
+#   Basecamp Bakery — website content
+# ═══════════════════════════════════════════════════════════════════════
+#
+#   Edit THIS file to change the site. When you commit, a robot rebuilds
+#   index.html, styles.css, and script.js from your edits. If you make a
+#   typo, the robot stops and the site stays on the previous version — it
+#   won't go live in a broken state.
+#
+#   Tips
+#   ────
+#   - Quotation marks around text help avoid confusion (e.g., apostrophes).
+#   - Dates use the YYYY-MM-DD format, wrapped in quotes.
+#   - Colors use the six-digit hex form, e.g. "#d97700" (fire orange).
+#   - Lines starting with # are comments — ignored by the build.
+#
+# ═══════════════════════════════════════════════════════════════════════
+
+# ── Site text ──────────────────────────────────────────────────────────
+site:
+  title: "Basecamp Bakery — Order"
+  tagline: "Fresh milled · Baked with love"
+  heading_primary: "Basecamp"           # Big title: first word
+  heading_accent: "Bakery"              # Big title: second word (colored in accent)
+  header_note: "Orders must be submitted at least 48 hours in advance"
+  footer: "© Basecamp Bakery · Fresh milled, baked with love · Orders by request only"
+  advance_hours: 48                     # Used in header note + the checkbox label
+  success_heading: "Order Received!"
+  success_message: "Thanks for your order! Pay now using one of the QR codes below to lock in your order. Once we receive payment, you'll get a confirmation email. We can't wait to bake for you!"
+
+# ── Theme colors ───────────────────────────────────────────────────────
+#   These are the palette for the whole site. The accent color (fire) is
+#   used on buttons, prices, and the word "Bakery" in the header.
+theme:
+  light:
+    fire: "#d97700"            # Accent / primary
+    ember: "#e86b1a"           # Accent alt (used in gradients)
+    cream: "#faf3e4"           # Page background
+    slate: "#2e3f3c"           # Body text
+    forest: "#6b7a5e"          # Secondary text
+    bark: "#5a3e10"            # Field labels
+    wheat: "#e8c97a"           # Highlights on dark areas
+    smoke: "#f5edd8"           # Input background
+    surface_dark: "#2e3f3c"    # Header and footer background
+  dark:
+    # Only the fields you want different from the light palette go here.
+    cream: "#1a2422"
+    slate: "#e8e0d0"
+    forest: "#9aab8a"
+    bark: "#d4b878"
+    smoke: "#243430"
+    surface_dark: "#141c1a"
+
+# ── Pickup schedule ────────────────────────────────────────────────────
+pickup:
+  bake_day: "Tuesday"                   # Day of week that anchors each pickup week
+  weeks_ahead: 8                        # How many upcoming weeks to offer
+  min_lead_time_days: 2                 # Hide weeks that are less than N days away
+  note: "Bake day is every Tuesday — pickups available Tue or Wed."
+  time_slots:                           # Each slot generates one dropdown option
+    - day_offset: 0                     # 0 = bake day itself, 1 = day after
+      label: "Afternoon (2pm – 5pm)"
+    - day_offset: 0
+      label: "Evening (5pm – 7pm)"
+    - day_offset: 1
+      label: "Morning (8am – 11am)"
+
+# ── Regular menu (always available) ────────────────────────────────────
+#   Each item has either a single price + unit_label, or a `sizes` list
+#   with multiple options. Add or remove items freely — the site adapts.
+menu:
+  - id: bread
+    icon: "🍞"
+    name: "Sandwich Bread"
+    description: "Incredibly soft whole grain loaves using the tangzhong method. Made with hard white wheat & Kamut."
+    price: 10
+    unit_label: "Loaves"                # Qty row label
+    price_display: "$10 per loaf"       # Price badge on the card
+  - id: cinroll
+    icon: "🌀"
+    name: "Cinnamon Rolls"
+    description: "Big, soft & fluffy rolls made with hard & soft white wheat. Topped with homemade cream cheese frosting."
+    price_display: "4 for $14 · Dozen for $38"
+    sizes:
+      - label: "4 rolls"
+        price: 14
+      - label: "1 dozen"
+        price: 38
+  - id: cookies
+    icon: "🍪"
+    name: "Brown Butter Chocolate Chip Cookies"
+    description: "Whole grain soft white wheat with nutty browned butter and rich chocolate chips."
+    price_display: "Half dozen $10 · Dozen $18"
+    sizes:
+      - label: "Half dozen"
+        price: 10
+      - label: "1 dozen"
+        price: 18
+  - id: dinner
+    icon: "🫓"
+    name: "Dinner Rolls"
+    description: "Soft, pillowy whole grain dinner rolls — perfect alongside any meal."
+    price_display: "Half dozen $10 · Dozen $18"
+    sizes:
+      - label: "Half dozen"
+        price: 10
+      - label: "1 dozen"
+        price: 18
+
+# ── Seasonal/holiday special ───────────────────────────────────────────
+#   Set `enabled: false` to hide this whole section (banner + boxes +
+#   the special pickup day in the dropdown). No other changes needed.
+special_event:
+  enabled: true
+  title: "Mother's Day Treat Boxes"
+  subtitle: "Whole Grain · Stone Milled · Baked to Order"
+  icon: "🌸"
+  banner_from: "#5c2d4a"                # Banner gradient start
+  banner_to: "#7a3d60"                  # Banner gradient end
+  banner_accent: "#f0c9d8"              # Banner title + label color
+  button_bg: "#5c2d4a"                  # "Add to Order" button background
+  button_text: "#f0c9d8"
+  deadline: "2026-05-05"                # Orders cut off end of this day
+  pickup_label: "Mother's Day Boxes"    # Shows in the pickup dropdown
+  pickup_days:                          # One or more allowed pickup dates
+    - date: "2026-05-08"
+      label: "Friday, May 8"
+    - date: "2026-05-09"
+      label: "Saturday, May 9"
+  boxes:
+    - name: "The Bloom"
+      serves: "2–3"
+      price: 28
+      items:
+        - "🌀 Cinnamon Rolls ×3"
+        - "🍓 Strawberry & Cream Scones ×2"
+        - "🍪 Brown Butter Cookies ×6"
+    - name: "The Garden"
+      serves: "4–6"
+      price: 48
+      featured: true                    # Adds "Most Popular" tag
+      items:
+        - "🌀 Cinnamon Rolls ×4"
+        - "🍓 Strawberry & Cream Scones ×4"
+        - "🍪 Brown Butter Cookies ×6"
+        - "🍋 Mini Lemon Loaf ×1"
+    - name: "The Spread"
+      serves: "8–10"
+      price: 72
+      items:
+        - "🌀 Cinnamon Rolls ×6"
+        - "🍓 Strawberry & Cream Scones ×6"
+        - "🍪 Brown Butter Cookies ×12"
+        - "🍋 Mini Lemon Loaf ×1"
+
+# ── Payment ────────────────────────────────────────────────────────────
+payment:
+  venmo:
+    handle: "@basecampbakeryllc"
+    qr_image: "venmo-qr.png"
+    qr_link: "https://www.paypal.com/qrcodes/venmocs/83d96e72-a4e7-4a14-8d43-fc94abffc69b?created=1773447566"
+  zelle:
+    email: "basecampbakeryllc@gmail.com"
+    qr_image: "zelle-qr.png"
+    qr_link: "https://enroll.zellepay.com/qr-codes?data=eyJ0b2tlbiI6ImJhc2VjYW1wYmFrZXJ5bGxjQGdtYWlsLmNvbSIsIm5hbWUiOiJBTFlTU0EgV0FTUyIsImFjdGlvbiI6IlBheW1lbnQifQ=="
+
+# ── Form endpoint ──────────────────────────────────────────────────────
+form:
+  formspree_id: "xeerqnnq"
