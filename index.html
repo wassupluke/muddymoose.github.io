@@ -1,10 +1,15 @@
+<!-- AUTO-GENERATED from content.yaml. Do not edit directly — edit content.yaml and run `pnpm run build`. -->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Basecamp Bakery — Order</title>
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Black+Han+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=d3575815" />
     <script>
       (function () {
         var t = localStorage.getItem("theme");
@@ -29,9 +34,7 @@
           <div class="header-text">
             <p class="tagline">Fresh milled · Baked with love</p>
             <h1>Basecamp <span>Bakery</span></h1>
-            <p class="header-note">
-              Orders must be submitted at least 48 hours in advance
-            </p>
+            <p class="header-note">Orders must be submitted at least 48 hours in advance</p>
           </div>
         </div>
       </header>
@@ -92,16 +95,8 @@
                   <select id="pickup" required>
                     <option value="">-- Select a pickup week --</option>
                   </select>
-                  <div
-                    style="
-                      font-size: 0.73rem;
-                      color: var(--forest);
-                      font-style: italic;
-                      margin-top: 4px;
-                    "
-                  >
-                    Bake day is every Tuesday — pickups available Tue or Wed. 🌸
-                    Mother's Day boxes: order by May 5th, pickup May 8–9.
+                  <div class="pickup-hint">
+                    Bake day is every Tuesday — pickups available Tue or Wed. 🌸 Mother&#x27;s Day Boxes: order by May 5th, pickup May 8–9.
                   </div>
                   <div class="field-error" id="pickup-error"></div>
                 </div>
@@ -122,243 +117,232 @@
                 <div class="menu-card">
                   <span class="card-icon">🍞</span>
                   <div class="card-title">Sandwich Bread</div>
-                  <div class="card-desc">
-                    Incredibly soft whole grain loaves using the tangzhong
-                    method. Made with hard white wheat &amp; Kamut.
-                  </div>
+                  <div class="card-desc">Incredibly soft whole grain loaves using the tangzhong method. Made with hard white wheat &amp; Kamut.</div>
                   <div class="card-price">$10 per loaf</div>
-                  <div class="qty-row">
-                    <div class="qty-label">Loaves</div>
-                    <div class="qty-controls">
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-qty="bread"
-                        data-delta="-1"
-                      >
-                        −
-                      </button>
-                      <div class="qty-display" id="bread-display">0</div>
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-qty="bread"
-                        data-delta="1"
-                        data-price="10"
-                      >
-                        +
-                      </button>
+                    <div class="qty-row">
+                      <div class="qty-label">Loaves</div>
+                      <div class="qty-controls">
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="bread"
+                          data-delta="-1"
+                        >
+                          −
+                        </button>
+                        <div class="qty-display" id="bread-display">0</div>
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="bread"
+                          data-delta="1"
+                          data-price="10"
+                          data-label="Sandwich Bread"
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
-                  </div>
                 </div>
-
                 <div class="menu-card">
                   <span class="card-icon">🌀</span>
                   <div class="card-title">Cinnamon Rolls</div>
-                  <div class="card-desc">
-                    Big, soft &amp; fluffy rolls made with hard &amp; soft white
-                    wheat. Topped with homemade cream cheese frosting.
-                  </div>
+                  <div class="card-desc">Big, soft &amp; fluffy rolls made with hard &amp; soft white wheat. Topped with homemade cream cheese frosting.</div>
                   <div class="card-price">4 for $14 · Dozen for $38</div>
-                  <div class="qty-row">
-                    <div class="qty-label">4 rolls — $14</div>
-                    <div class="qty-controls">
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="cinroll_4"
-                        data-delta="-1"
-                      >
-                        −
-                      </button>
-                      <div class="qty-display" id="cinroll_4-display">0</div>
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="cinroll_4"
-                        data-delta="1"
-                        data-price="14"
-                      >
-                        +
-                      </button>
+                    <div class="qty-row">
+                      <div class="qty-label">4 rolls — $14</div>
+                      <div class="qty-controls">
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="cinroll_s0"
+                          data-delta="-1"
+                        >
+                          −
+                        </button>
+                        <div class="qty-display" id="cinroll_s0-display">0</div>
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="cinroll_s0"
+                          data-delta="1"
+                          data-price="14"
+                          data-label="Cinnamon Rolls (4 rolls)"
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  <div class="qty-row" style="margin-top: 8px">
-                    <div class="qty-label">1 dozen — $38</div>
-                    <div class="qty-controls">
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="cinroll_12"
-                        data-delta="-1"
-                      >
-                        −
-                      </button>
-                      <div class="qty-display" id="cinroll_12-display">0</div>
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="cinroll_12"
-                        data-delta="1"
-                        data-price="38"
-                      >
-                        +
-                      </button>
+                    <div class="qty-row" style="margin-top: 8px">
+                      <div class="qty-label">1 dozen — $38</div>
+                      <div class="qty-controls">
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="cinroll_s1"
+                          data-delta="-1"
+                        >
+                          −
+                        </button>
+                        <div class="qty-display" id="cinroll_s1-display">0</div>
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="cinroll_s1"
+                          data-delta="1"
+                          data-price="38"
+                          data-label="Cinnamon Rolls (1 dozen)"
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
-                  </div>
                 </div>
-
                 <div class="menu-card">
                   <span class="card-icon">🍪</span>
-                  <div class="card-title">
-                    Brown Butter Chocolate Chip Cookies
-                  </div>
-                  <div class="card-desc">
-                    Whole grain soft white wheat with nutty browned butter and
-                    rich chocolate chips.
-                  </div>
+                  <div class="card-title">Brown Butter Chocolate Chip Cookies</div>
+                  <div class="card-desc">Whole grain soft white wheat with nutty browned butter and rich chocolate chips.</div>
                   <div class="card-price">Half dozen $10 · Dozen $18</div>
-                  <div class="qty-row">
-                    <div class="qty-label">Half dozen — $10</div>
-                    <div class="qty-controls">
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="cookies_6"
-                        data-delta="-1"
-                      >
-                        −
-                      </button>
-                      <div class="qty-display" id="cookies_6-display">0</div>
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="cookies_6"
-                        data-delta="1"
-                        data-price="10"
-                      >
-                        +
-                      </button>
+                    <div class="qty-row">
+                      <div class="qty-label">Half dozen — $10</div>
+                      <div class="qty-controls">
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="cookies_s0"
+                          data-delta="-1"
+                        >
+                          −
+                        </button>
+                        <div class="qty-display" id="cookies_s0-display">0</div>
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="cookies_s0"
+                          data-delta="1"
+                          data-price="10"
+                          data-label="Brown Butter Chocolate Chip Cookies (Half dozen)"
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  <div class="qty-row" style="margin-top: 8px">
-                    <div class="qty-label">1 dozen — $18</div>
-                    <div class="qty-controls">
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="cookies_12"
-                        data-delta="-1"
-                      >
-                        −
-                      </button>
-                      <div class="qty-display" id="cookies_12-display">0</div>
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="cookies_12"
-                        data-delta="1"
-                        data-price="18"
-                      >
-                        +
-                      </button>
+                    <div class="qty-row" style="margin-top: 8px">
+                      <div class="qty-label">1 dozen — $18</div>
+                      <div class="qty-controls">
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="cookies_s1"
+                          data-delta="-1"
+                        >
+                          −
+                        </button>
+                        <div class="qty-display" id="cookies_s1-display">0</div>
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="cookies_s1"
+                          data-delta="1"
+                          data-price="18"
+                          data-label="Brown Butter Chocolate Chip Cookies (1 dozen)"
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
-                  </div>
                 </div>
-
                 <div class="menu-card">
                   <span class="card-icon">🫓</span>
                   <div class="card-title">Dinner Rolls</div>
-                  <div class="card-desc">
-                    Soft, pillowy whole grain dinner rolls — perfect alongside
-                    any meal.
-                  </div>
+                  <div class="card-desc">Soft, pillowy whole grain dinner rolls — perfect alongside any meal.</div>
                   <div class="card-price">Half dozen $10 · Dozen $18</div>
-                  <div class="qty-row">
-                    <div class="qty-label">Half dozen — $10</div>
-                    <div class="qty-controls">
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="dinner_6"
-                        data-delta="-1"
-                      >
-                        −
-                      </button>
-                      <div class="qty-display" id="dinner_6-display">0</div>
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="dinner_6"
-                        data-delta="1"
-                        data-price="10"
-                      >
-                        +
-                      </button>
+                    <div class="qty-row">
+                      <div class="qty-label">Half dozen — $10</div>
+                      <div class="qty-controls">
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="dinner_s0"
+                          data-delta="-1"
+                        >
+                          −
+                        </button>
+                        <div class="qty-display" id="dinner_s0-display">0</div>
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="dinner_s0"
+                          data-delta="1"
+                          data-price="10"
+                          data-label="Dinner Rolls (Half dozen)"
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  <div class="qty-row" style="margin-top: 8px">
-                    <div class="qty-label">1 dozen — $18</div>
-                    <div class="qty-controls">
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="dinner_12"
-                        data-delta="-1"
-                      >
-                        −
-                      </button>
-                      <div class="qty-display" id="dinner_12-display">0</div>
-                      <button
-                        type="button"
-                        class="qty-btn"
-                        data-sized="dinner_12"
-                        data-delta="1"
-                        data-price="18"
-                      >
-                        +
-                      </button>
+                    <div class="qty-row" style="margin-top: 8px">
+                      <div class="qty-label">1 dozen — $18</div>
+                      <div class="qty-controls">
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="dinner_s1"
+                          data-delta="-1"
+                        >
+                          −
+                        </button>
+                        <div class="qty-display" id="dinner_s1-display">0</div>
+                        <button
+                          type="button"
+                          class="qty-btn"
+                          data-key="dinner_s1"
+                          data-delta="1"
+                          data-price="18"
+                          data-label="Dinner Rolls (1 dozen)"
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
 
-              <div class="mothers-banner">
-                <div class="mothers-banner-inner">
-                  <span class="mothers-icon">🌸</span>
+              <div class="special-banner">
+                <div class="special-banner-inner">
+                  <span class="special-icon">🌸</span>
                   <div>
-                    <div class="mothers-title">Mother's Day Treat Boxes</div>
-                    <div class="mothers-subtitle">
-                      Whole Grain · Stone Milled · Baked to Order
-                    </div>
+                    <div class="special-title">Mother&#x27;s Day Treat Boxes</div>
+                    <div class="special-subtitle">Whole Grain · Stone Milled · Baked to Order</div>
                   </div>
-                  <div class="mothers-deadline">
-                    <div class="mothers-deadline-label">Orders due</div>
-                    <div class="mothers-deadline-date">May 5th</div>
-                    <div class="mothers-deadline-pickup">
+                  <div class="special-deadline">
+                    <div class="special-deadline-label">Orders due</div>
+                    <div class="special-deadline-date">May 5th</div>
+                    <div class="special-deadline-pickup">
                       Pickup: May 8–9
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="mothers-grid">
-                <div class="mothers-card">
-                  <div class="mothers-card-header">
+              <div class="special-grid">
+                <div class="special-card">
+                  
+                  <div class="special-card-header">
                     <div>
-                      <div class="mothers-card-name">The Bloom</div>
-                      <div class="mothers-card-serves">Serves 2–3</div>
+                      <div class="special-card-name">The Bloom</div>
+                      <div class="special-card-serves">Serves 2–3</div>
                     </div>
-                    <div class="mothers-card-price">$28</div>
+                    <div class="special-card-price">$28</div>
                   </div>
-                  <ul class="mothers-items">
+                  <ul class="special-items">
                     <li>🌀 Cinnamon Rolls ×3</li>
                     <li>🍓 Strawberry &amp; Cream Scones ×2</li>
                     <li>🍪 Brown Butter Cookies ×6</li>
                   </ul>
                   <button
                     type="button"
-                    class="mothers-btn"
+                    class="special-btn"
                     data-add-special
                     data-name="The Bloom"
                     data-price="28"
@@ -366,17 +350,16 @@
                     + Add to Order — $28
                   </button>
                 </div>
-
-                <div class="mothers-card mothers-card-featured">
-                  <div class="mothers-featured-tag">Most Popular</div>
-                  <div class="mothers-card-header">
+                <div class="special-card special-card-featured">
+                  <div class="special-featured-tag">Most Popular</div>
+                  <div class="special-card-header">
                     <div>
-                      <div class="mothers-card-name">The Garden</div>
-                      <div class="mothers-card-serves">Serves 4–6</div>
+                      <div class="special-card-name">The Garden</div>
+                      <div class="special-card-serves">Serves 4–6</div>
                     </div>
-                    <div class="mothers-card-price">$48</div>
+                    <div class="special-card-price">$48</div>
                   </div>
-                  <ul class="mothers-items">
+                  <ul class="special-items">
                     <li>🌀 Cinnamon Rolls ×4</li>
                     <li>🍓 Strawberry &amp; Cream Scones ×4</li>
                     <li>🍪 Brown Butter Cookies ×6</li>
@@ -384,7 +367,7 @@
                   </ul>
                   <button
                     type="button"
-                    class="mothers-btn"
+                    class="special-btn"
                     data-add-special
                     data-name="The Garden"
                     data-price="48"
@@ -392,16 +375,16 @@
                     + Add to Order — $48
                   </button>
                 </div>
-
-                <div class="mothers-card">
-                  <div class="mothers-card-header">
+                <div class="special-card">
+                  
+                  <div class="special-card-header">
                     <div>
-                      <div class="mothers-card-name">The Spread</div>
-                      <div class="mothers-card-serves">Serves 8–10</div>
+                      <div class="special-card-name">The Spread</div>
+                      <div class="special-card-serves">Serves 8–10</div>
                     </div>
-                    <div class="mothers-card-price">$72</div>
+                    <div class="special-card-price">$72</div>
                   </div>
-                  <ul class="mothers-items">
+                  <ul class="special-items">
                     <li>🌀 Cinnamon Rolls ×6</li>
                     <li>🍓 Strawberry &amp; Cream Scones ×6</li>
                     <li>🍪 Brown Butter Cookies ×12</li>
@@ -409,7 +392,7 @@
                   </ul>
                   <button
                     type="button"
-                    class="mothers-btn"
+                    class="special-btn"
                     data-add-special
                     data-name="The Spread"
                     data-price="72"
@@ -491,54 +474,51 @@
         <div
           class="mobile-basket-bar"
           id="mobileBar"
-          onclick="
-            document
-              .querySelector('.summary-sidebar')
-              .scrollIntoView({ behavior: 'smooth' })
-          "
+          onclick="document.querySelector('.summary-sidebar').scrollIntoView({ behavior: 'smooth' })"
         >
           <div class="mobile-bar-badge" id="mobileBarBadge">0</div>
           <div class="mobile-bar-label">View basket</div>
           <div class="mobile-bar-total" id="mobileBarTotal">$0</div>
         </div>
 
-	<div class="success-screen" id="successScreen">
+        <div class="success-screen" id="successScreen">
           <div class="success-icon">🏕️</div>
           <h2>Order Received!</h2>
-          <p>
-            Thanks for your order! Pay now using one of the QR codes below to
-            lock in your order. Once we receive payment, you'll get a
-            confirmation email. We can't wait to bake for you!
-          </p>
+          <p>Thanks for your order! Pay now using one of the QR codes below to lock in your order. Once we receive payment, you&#x27;ll get a confirmation email. We can&#x27;t wait to bake for you!</p>
 
-	  <div class="confirmation-summary" id="confirmationSummary"></div>
+          <div class="confirmation-summary" id="confirmationSummary"></div>
 
           <div class="qr-section">
             <h3>Pay with Venmo or Zelle</h3>
             <div class="qr-codes">
-	      <a href="https://www.paypal.com/qrcodes/venmocs/83d96e72-a4e7-4a14-8d43-fc94abffc69b?created=1773447566" target="_blank" class="qr-card-link">
+              <a
+                href="https://www.paypal.com/qrcodes/venmocs/83d96e72-a4e7-4a14-8d43-fc94abffc69b?created&#x3D;1773447566"
+                target="_blank"
+                class="qr-card-link"
+              >
                 <div class="qr-card">
                   <img src="venmo-qr.png" alt="Venmo QR Code" />
                   <span class="qr-label">💙 Venmo</span>
                 </div>
-	      </a>
-	      <a href="https://enroll.zellepay.com/qr-codes?data=eyJ0b2tlbiI6ImJhc2VjYW1wYmFrZXJ5bGxjQGdtYWlsLmNvbSIsIm5hbWUiOiJBTFlTU0EgV0FTUyIsImFjdGlvbiI6IlBheW1lbnQifQ==" target="_blank" class="qr-card-link">
+              </a>
+              <a
+                href="https://enroll.zellepay.com/qr-codes?data&#x3D;eyJ0b2tlbiI6ImJhc2VjYW1wYmFrZXJ5bGxjQGdtYWlsLmNvbSIsIm5hbWUiOiJBTFlTU0EgV0FTUyIsImFjdGlvbiI6IlBheW1lbnQifQ&#x3D;&#x3D;"
+                target="_blank"
+                class="qr-card-link"
+              >
                 <div class="qr-card">
                   <img src="zelle-qr.png" alt="Zelle QR Code" />
                   <span class="qr-label">💜 Zelle</span>
                 </div>
-	      </a>
+              </a>
             </div>
-	    <p>@basecampbakeryllc | basecampbakeryllc@gmail.com</p>
+            <p>@basecampbakeryllc | basecampbakeryllc@gmail.com</p>
           </div>
         </div>
       </main>
 
-      <footer>
-        © Basecamp Bakery · Fresh milled, baked with love · Orders by request
-        only
-      </footer>
+      <footer>© Basecamp Bakery · Fresh milled, baked with love · Orders by request only</footer>
     </div>
-    <script src="order-form.js?v=3" defer></script>
+    <script src="script.js?v=905d697a" defer></script>
   </body>
 </html>

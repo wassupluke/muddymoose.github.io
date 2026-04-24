@@ -2,7 +2,13 @@ import globals from "globals";
 
 export default [
   {
-    ignores: ["node_modules/**", "tests/**", "playwright.config.js"],
+    ignores: [
+      "node_modules/**",
+      "tests/**",
+      "playwright.config.js",
+      "build.js",
+      "schema.js",
+    ],
   },
   {
     languageOptions: {
