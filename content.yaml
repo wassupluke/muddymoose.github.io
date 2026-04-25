@@ -157,11 +157,11 @@ special_event:
 payment:
   venmo:
     handle: "@basecampbakeryllc"
-    qr_image: "venmo-qr.png"
+    qr_image: "assets/venmo-qr.png"
     qr_link: "https://www.paypal.com/qrcodes/venmocs/83d96e72-a4e7-4a14-8d43-fc94abffc69b?created=1773447566"
   zelle:
     email: "basecampbakeryllc@gmail.com"
-    qr_image: "zelle-qr.png"
+    qr_image: "assets/zelle-qr.png"
     qr_link: "https://enroll.zellepay.com/qr-codes?data=eyJ0b2tlbiI6ImJhc2VjYW1wYmFrZXJ5bGxjQGdtYWlsLmNvbSIsIm5hbWUiOiJBTFlTU0EgV0FTUyIsImFjdGlvbiI6IlBheW1lbnQifQ=="
 
 # ── Form endpoint ──────────────────────────────────────────────────────
